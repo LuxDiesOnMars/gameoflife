@@ -9,8 +9,8 @@ Qualsiasi cella morta con esattamente tre celle vive adiacenti diventa una cella
 #include <time.h>
 #include <windows.h>
 
-#define maxrig 20  //num max di righe
-#define maxcol 50  //num max di colonne
+#define maxrig 30  //num max di righe MAX 40
+#define maxcol 50  //num max di colonne MAX 83
 #define DELAY 0.10 //delay tra una stampa e l altra
 #define TIME 300   //durata tempo processo
 #define MOLTEPLICITA 30 //da 0a 100,percentuale di valori inizializzati random a 1 a inizio processo
@@ -72,6 +72,7 @@ int main(void)
     while(((clock()-now)/CLOCKS_PER_SEC)<TIME)
     {
         SetConsoleCursorPosition(hConsole,coord);
+       /*QUESTA PARTE NON SERVE PERCHè SOVRASCRIVE DIRETTAMENTE IN OUTPUT(IN EFFETTI HA SENSO,PERCHè ALLO STESSO MODO SOVRASCRIVEVA ' ')
         for(int rig=0;rig<maxrig;rig++)
             for(int col=0;col<maxcol;col++)
             {
@@ -79,6 +80,7 @@ int main(void)
                 if(col==maxcol-1)printf("\n");
             }
             SetConsoleCursorPosition(hConsole,coord);
+        */
         int (*p)[maxcol]= (int *)malloc(sizeof(array));
         memcpy(p,array,sizeof(array));
 
